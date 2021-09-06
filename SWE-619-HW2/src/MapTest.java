@@ -46,7 +46,7 @@ public class MapTest {
 	@Test
 	public void testMapMatch() {
 		
-		//Test correct inputs
+		//Test arguments not null
 		assertTrue(Match.match(map, prompt, answer));
 	}
 	
