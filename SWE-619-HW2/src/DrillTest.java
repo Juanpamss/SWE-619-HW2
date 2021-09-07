@@ -42,7 +42,7 @@ public class DrillTest {
 		map.put("dog", "le chien");
 		map.put("cat", "le chat");
 		map.put("car", "la voiture");
-		map.put("BoOk", "le livre");
+		map.put("BoOk", "le lIvRe");
 	}
 	
 	@Test
