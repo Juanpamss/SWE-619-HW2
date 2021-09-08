@@ -1,4 +1,5 @@
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Drill {
 	
@@ -19,7 +20,7 @@ public class Drill {
 		if (answer == null || prompt == null) {
 			throw new NullPointerException();
 		}
-		if (!m.containsKey(prompt)) {
+		if (!m.containsKey(prompt) || !(m instanceof TreeMap)) {
 			throw new IllegalArgumentException();
 		}
 		return m.get(prompt).equalsIgnoreCase(answer) ? true : false;

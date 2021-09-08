@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -53,7 +54,7 @@ public class DrillTest {
 	}
 	
 	@Test
-	public void testMapExceptions() {
+	public void testMapNPE() {
 		
 		//Test NPE
 		
@@ -74,11 +75,17 @@ public class DrillTest {
 	}
 	
 	@Test
-	public void testMapNonExistingKey() {
+	public void testMapIAE() {
 		
 		//Test non existing key in Map (IAE)
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			Drill.matchEnhanced(map, "cheese", "le fromage");
+		});	
+		
+		//Map instance != TreeMap
+		Map<String, String> newMap = new HashMap<String, String>();
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			Drill.matchEnhanced(newMap, "dog", "le chien");
 		});
 	}
 	
